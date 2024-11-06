@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -35,6 +36,8 @@ namespace PRG282Project
 
         private void btnAddStudent_Click(object sender, EventArgs e)
         {
+            
+
             if (!ValidateStudentData()) return;
             string FilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\students.txt");
             var student = new Student
@@ -44,6 +47,32 @@ namespace PRG282Project
                 Age = int.Parse(Age.Text),
                 Course = Course.Text
             };
+            string databaseconn = "Server=HANNO\\SQLEXPRESS;Initial Catalog=Students;Integrated Security=True";
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(databaseconn))
+                {
+                    conn.Open();
+
+                    string query = @"INSERT INTO StudentInfo(StudentId,name,age,course) VALUES (@studentID , @name , @age,@course)";
+                    using(SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@studentID",student.ID);
+                        cmd.Parameters.AddWithValue("@name", student.Name);
+                        cmd.Parameters.AddWithValue("@age", student.Age);
+                        cmd.Parameters.AddWithValue("@course" , student.Course);
+
+                        int rowsaffected = cmd.ExecuteNonQuery();
+
+                        
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Could not find the database!",ex.Message);
+            }
             try
             {
                 using (StreamWriter sw = new StreamWriter(FilePath, true))
