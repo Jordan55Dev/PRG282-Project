@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.Course = new System.Windows.Forms.TextBox();
             this.Age = new System.Windows.Forms.TextBox();
             this.Name = new System.Windows.Forms.TextBox();
@@ -37,10 +40,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button4 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -64,6 +65,33 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Make a change/Find";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(505, 223);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(89, 36);
+            this.button3.TabIndex = 10;
+            this.button3.Text = "Delete";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(260, 223);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(89, 36);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "Update";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(28, 223);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(89, 36);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Search";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Course
             // 
@@ -129,33 +157,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "StudentID";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(28, 223);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(89, 36);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Search";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(260, 223);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(89, 36);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Update";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(505, 223);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(89, 36);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Delete";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -166,14 +167,25 @@
             this.dataGridView1.Size = new System.Drawing.Size(684, 218);
             this.dataGridView1.TabIndex = 3;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(30, 555);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(89, 36);
+            this.button4.TabIndex = 11;
+            this.button4.Text = "Return";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1065, 603);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Form3";
+            
             this.Text = "Form3";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -197,5 +209,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button4;
     }
 }
