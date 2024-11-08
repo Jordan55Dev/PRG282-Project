@@ -21,11 +21,7 @@ namespace PRG282Project
             InitializeComponent();
         }
 
-        // Event handler for the Generate Report button
-        private void btnGenerateReport_Click(object sender, EventArgs e)
-        {
-            LoadSummary();  // Call LoadSummary method to generate the report
-        }
+        
 
         // LoadSummary method: Calls database and file methods to get summary data
         private void LoadSummary()
@@ -39,8 +35,8 @@ namespace PRG282Project
             // GetSummaryFromTextFile(ref totalStudents, ref averageAge);
 
             // Display the results in the labels
-            lblTotalStudents.Text = "Total Students: " + totalStudents;
-            lblAverageAge.Text = "Average Age: " + averageAge.ToString("F2");
+            textBox1.Text = "Total Students: " + totalStudents;
+            textBox2.Text = "Average Age: " + averageAge.ToString("F2");
         }
 
         // GetSummaryFromDatabase method: Connects to the SQL database to retrieve student count and average age
@@ -95,6 +91,11 @@ namespace PRG282Project
             {
                 MessageBox.Show("Error loading summary from text file: " + ex.Message);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LoadSummary();
         }
     }
 }

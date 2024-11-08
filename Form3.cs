@@ -158,5 +158,12 @@ namespace PRG282Project
                 }
             }
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            SummaryForm form4 = new SummaryForm();
+            form4.Show();
+            this.Hide();
+        }
     }
 }
