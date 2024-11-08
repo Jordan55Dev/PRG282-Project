@@ -17,6 +17,33 @@ namespace PRG282Project
         public Form2()
         {
             InitializeComponent();
+            AddFooter();
+        }
+
+        private void AddFooter()
+        {
+            // Create a panel for the footer
+            Panel footerPanel = new Panel
+            {
+                Dock = DockStyle.Bottom,
+                Height = 30,  // Adjust the height as per your needs
+                BackColor = Color.LightGray  // Change the color if needed
+            };
+
+            // Add footer text (you can customize the text or add other controls)
+            Label footerLabel = new Label
+            {
+                Text = "Student Management System - © 2024 All rights reserved",
+                Dock = DockStyle.Fill,
+                TextAlign = ContentAlignment.MiddleCenter,
+                Font = new Font("Arial", 10, FontStyle.Regular)
+            };
+
+            // Add the label to the footer panel
+            footerPanel.Controls.Add(footerLabel);
+
+            // Add the footer panel to the form
+            this.Controls.Add(footerPanel);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -24,19 +51,19 @@ namespace PRG282Project
             Form1 form1 = new Form1();
             form1.Show();
             this.Hide();
-            
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Form3 form3 = new Form3();
-            form3.Show(); 
+            form3.Show();
             this.Hide();
         }
 
         private void btnAddStudent_Click(object sender, EventArgs e)
         {
-            
+
 
             if (!ValidateStudentData()) return;
             string FilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\students.txt");
@@ -55,23 +82,23 @@ namespace PRG282Project
                     conn.Open();
 
                     string query = @"INSERT INTO StudentInfo(StudentId,name,age,course) VALUES (@studentID , @name , @age,@course)";
-                    using(SqlCommand cmd = new SqlCommand(query, conn))
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@studentID",student.ID);
+                        cmd.Parameters.AddWithValue("@studentID", student.ID);
                         cmd.Parameters.AddWithValue("@name", student.Name);
                         cmd.Parameters.AddWithValue("@age", student.Age);
-                        cmd.Parameters.AddWithValue("@course" , student.Course);
+                        cmd.Parameters.AddWithValue("@course", student.Course);
 
                         int rowsaffected = cmd.ExecuteNonQuery();
 
-                        
+
                     }
 
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Could not find the database!",ex.Message);
+                MessageBox.Show("Could not find the database!", ex.Message);
             }
             try
             {
@@ -90,7 +117,7 @@ namespace PRG282Project
             }
 
 
-            
+
         }
         private bool ValidateStudentData()
         {

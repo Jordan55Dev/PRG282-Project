@@ -10,8 +10,6 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
 
-using System.Windows.Forms;
-
 namespace PRG282Project
 {
     public partial class SummaryForm : Form
@@ -19,9 +17,35 @@ namespace PRG282Project
         public SummaryForm()
         {
             InitializeComponent();
+            AddFooter(); // Call method to add footer
         }
 
-        
+        // Method to add footer to the form
+        private void AddFooter()
+        {
+            // Create a panel for the footer
+            Panel footerPanel = new Panel
+            {
+                Dock = DockStyle.Bottom,
+                Height = 30,  // Adjust the height as per your needs
+                BackColor = Color.LightGray  // Change the color if needed
+            };
+
+            // Add footer text (you can customize the text or add other controls)
+            Label footerLabel = new Label
+            {
+                Text = "Student Management System - © 2024 All rights reserved",
+                Dock = DockStyle.Fill,
+                TextAlign = ContentAlignment.MiddleCenter,
+                Font = new Font("Arial", 10, FontStyle.Regular)
+            };
+
+            // Add the label to the footer panel
+            footerPanel.Controls.Add(footerLabel);
+
+            // Add the footer panel to the form
+            this.Controls.Add(footerPanel);
+        }
 
         // LoadSummary method: Calls database and file methods to get summary data
         private void LoadSummary()
@@ -84,7 +108,7 @@ namespace PRG282Project
                     var fields = line.Split(',');
                     return int.TryParse(fields[2], out int age) ? age : 0;
                 }).Sum();
-                
+
                 averageAge = totalStudents > 0 ? totalAge / totalStudents : 0;
             }
             catch (Exception ex)

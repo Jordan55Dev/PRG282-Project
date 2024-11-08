@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -15,6 +16,24 @@ namespace PRG282Project
             InitializeComponent();
             LoadData();
             dataGridView1.CellClick += dataGridView1_CellClick; // Attach CellClick event
+
+            // Add footer
+            var footerPanel = new Panel
+            {
+                Dock = DockStyle.Bottom,
+                Height = 30,
+                BackColor = Color.FromArgb(220, 220, 220)
+            };
+            Controls.Add(footerPanel);
+
+            var lblFooter = new Label
+            {
+                Text = "© 2024 Your Company Name. All Rights Reserved.",
+                Dock = DockStyle.Fill,
+                Font = new Font("Segoe UI", 9),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            footerPanel.Controls.Add(lblFooter);
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -23,10 +42,6 @@ namespace PRG282Project
             form2.Show();
             this.Hide();
         }
-
-        
-          
-    
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -174,7 +189,6 @@ namespace PRG282Project
 
             // Reload data to show the updated information
             LoadData();
-        
-    }
+        }
     }
 }
