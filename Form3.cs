@@ -1,14 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace PRG282Project
 {
@@ -18,6 +14,7 @@ namespace PRG282Project
         {
             InitializeComponent();
             LoadData();
+            dataGridView1.CellClick += dataGridView1_CellClick; // Attach CellClick event
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -40,7 +37,7 @@ namespace PRG282Project
             };
 
             string databaseConn = "Server=HANNO\\SQLEXPRESS;Initial Catalog=Students;Integrated Security=True";
-            
+
             try
             {
                 using (SqlConnection conn = new SqlConnection(databaseConn))
@@ -55,11 +52,12 @@ namespace PRG282Project
                         cmd.Parameters.AddWithValue("@course", student.Course);
 
                         int rowsAffected = cmd.ExecuteNonQuery();
-                        
+
                         if (rowsAffected > 0)
                         {
                             MessageBox.Show("Student updated successfully!", "Success");
                             ClearStudentFields();
+                            LoadData(); // Refresh DataGridView
                         }
                         else
                         {
@@ -77,11 +75,9 @@ namespace PRG282Project
             string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\students.txt");
             try
             {
-                // Read existing file data
                 var lines = File.ReadAllLines(filePath).ToList();
                 for (int i = 0; i < lines.Count; i++)
                 {
-                    // Assuming each line has the format "ID,Name,Age,Course"
                     var fields = lines[i].Split(',');
                     if (fields[0] == student.ID)
                     {
@@ -89,12 +85,23 @@ namespace PRG282Project
                         break;
                     }
                 }
-                // Write updated data back to file
                 File.WriteAllLines(filePath, lines);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error updating the text file: " + ex.Message);
+            }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                studentID.Text = row.Cells["StudentId"].Value.ToString();
+                Name.Text = row.Cells["Name"].Value.ToString();
+                Age.Text = row.Cells["Age"].Value.ToString();
+                Course.Text = row.Cells["Course"].Value.ToString();
             }
         }
 
@@ -111,7 +118,7 @@ namespace PRG282Project
             if (!int.TryParse(Age.Text, out int age))
             {
                 MessageBox.Show("Please enter a valid number for age!", "Validation Error");
-                this.Age.Clear();
+                Age.Clear();
                 return false;
             }
             if (age < 18)
@@ -130,6 +137,7 @@ namespace PRG282Project
             Age.Clear();
             Course.Clear();
         }
+
         private void LoadData()
         {
             string databaseConn = "Server=HANNO\\SQLEXPRESS;Initial Catalog=Students;Integrated Security=True";
@@ -139,17 +147,10 @@ namespace PRG282Project
             {
                 try
                 {
-                    // Open the connection
                     connection.Open();
-
-                    // Create a data adapter
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connection);
-
-                    // Fill a DataTable
                     DataTable dataTable = new DataTable();
                     dataAdapter.Fill(dataTable);
-
-                    // Bind the DataTable to the DataGridView
                     dataGridView1.DataSource = dataTable;
                 }
                 catch (Exception ex)
