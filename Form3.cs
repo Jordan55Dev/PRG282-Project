@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.IO;
 
 namespace PRG282Project
 {
@@ -15,6 +17,7 @@ namespace PRG282Project
         public Form3()
         {
             InitializeComponent();
+            LoadData();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -126,6 +129,34 @@ namespace PRG282Project
             Name.Clear();
             Age.Clear();
             Course.Clear();
+        }
+        private void LoadData()
+        {
+            string databaseConn = "Server=HANNO\\SQLEXPRESS;Initial Catalog=Students;Integrated Security=True";
+            string query = @"Select * from StudentInfo";
+
+            using (SqlConnection connection = new SqlConnection(databaseConn))
+            {
+                try
+                {
+                    // Open the connection
+                    connection.Open();
+
+                    // Create a data adapter
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connection);
+
+                    // Fill a DataTable
+                    DataTable dataTable = new DataTable();
+                    dataAdapter.Fill(dataTable);
+
+                    // Bind the DataTable to the DataGridView
+                    dataGridView1.DataSource = dataTable;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
         }
     }
 }
