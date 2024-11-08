@@ -49,6 +49,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button1);
@@ -60,16 +61,15 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(29, 27);
+            this.groupBox1.Location = new System.Drawing.Point(189, 40);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(684, 281);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Make a change/Find";
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(505, 223);
+            this.button3.Location = new System.Drawing.Point(546, 223);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(89, 36);
             this.button3.TabIndex = 10;
@@ -78,7 +78,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(260, 223);
+            this.button2.Location = new System.Drawing.Point(292, 223);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(89, 36);
             this.button2.TabIndex = 9;
@@ -97,28 +97,28 @@
             // 
             // Course
             // 
-            this.Course.Location = new System.Drawing.Point(151, 179);
+            this.Course.Location = new System.Drawing.Point(324, 180);
             this.Course.Name = "Course";
             this.Course.Size = new System.Drawing.Size(177, 22);
             this.Course.TabIndex = 7;
             // 
             // Age
             // 
-            this.Age.Location = new System.Drawing.Point(151, 139);
+            this.Age.Location = new System.Drawing.Point(324, 137);
             this.Age.Name = "Age";
             this.Age.Size = new System.Drawing.Size(57, 22);
             this.Age.TabIndex = 6;
             // 
             // Name
             // 
-            this.Name.Location = new System.Drawing.Point(151, 90);
+            this.Name.Location = new System.Drawing.Point(324, 90);
             this.Name.Name = "Name";
             this.Name.Size = new System.Drawing.Size(177, 22);
             this.Name.TabIndex = 5;
             // 
             // studentID
             // 
-            this.studentID.Location = new System.Drawing.Point(151, 42);
+            this.studentID.Location = new System.Drawing.Point(324, 42);
             this.studentID.Name = "studentID";
             this.studentID.Size = new System.Drawing.Size(177, 22);
             this.studentID.TabIndex = 4;
@@ -126,43 +126,52 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(25, 182);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(185, 182);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 16);
+            this.label4.Size = new System.Drawing.Size(63, 20);
             this.label4.TabIndex = 3;
             this.label4.Text = "Course";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 139);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(185, 137);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 16);
+            this.label3.Size = new System.Drawing.Size(38, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Age";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 90);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(185, 90);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 16);
+            this.label2.Size = new System.Drawing.Size(53, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Name";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 42);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(185, 44);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 16);
+            this.label1.Size = new System.Drawing.Size(83, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "StudentID";
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(29, 327);
+            this.dataGridView1.Location = new System.Drawing.Point(189, 331);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -171,28 +180,34 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(30, 555);
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.button4.ForeColor = System.Drawing.SystemColors.Window;
+            this.button4.Location = new System.Drawing.Point(42, 513);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(89, 36);
             this.button4.TabIndex = 11;
             this.button4.Text = "Return";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(534, 555);
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button5.ForeColor = System.Drawing.SystemColors.Window;
+            this.button5.Location = new System.Drawing.Point(928, 513);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(89, 36);
             this.button5.TabIndex = 12;
             this.button5.Text = "Next";
-            this.button5.UseVisualStyleBackColor = true;
+            this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(144)))), ((int)(((byte)(226)))));
             this.ClientSize = new System.Drawing.Size(1065, 603);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
