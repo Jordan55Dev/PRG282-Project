@@ -17,34 +17,10 @@ namespace PRG282Project
         public Form2()
         {
             InitializeComponent();
-            AddFooter();
+            
         }
 
-        private void AddFooter()
-        {
-            // Create a panel for the footer
-            Panel footerPanel = new Panel
-            {
-                Dock = DockStyle.Bottom,
-                Height = 30,  // Adjust the height as per your needs
-                BackColor = Color.LightGray  // Change the color if needed
-            };
-
-            // Add footer text (you can customize the text or add other controls)
-            Label footerLabel = new Label
-            {
-                Text = "Student Management System - © 2024 All rights reserved",
-                Dock = DockStyle.Fill,
-                TextAlign = ContentAlignment.MiddleCenter,
-                Font = new Font("Arial", 10, FontStyle.Regular)
-            };
-
-            // Add the label to the footer panel
-            footerPanel.Controls.Add(footerLabel);
-
-            // Add the footer panel to the form
-            this.Controls.Add(footerPanel);
-        }
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -150,6 +126,12 @@ namespace PRG282Project
             Name.Clear();
             Age.Clear();
             Course.Clear();
+        }
+
+        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+            Application.ExitThread();
         }
     }
 }

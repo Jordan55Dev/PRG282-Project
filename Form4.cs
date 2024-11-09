@@ -17,53 +17,25 @@ namespace PRG282Project
         public SummaryForm()
         {
             InitializeComponent();
-            AddFooter(); // Call method to add footer
+           
         }
 
-        // Method to add footer to the form
-        private void AddFooter()
-        {
-            // Create a panel for the footer
-            Panel footerPanel = new Panel
-            {
-                Dock = DockStyle.Bottom,
-                Height = 30,  // Adjust the height as per your needs
-                BackColor = Color.LightGray  // Change the color if needed
-            };
+        
+        
 
-            // Add footer text (you can customize the text or add other controls)
-            Label footerLabel = new Label
-            {
-                Text = "Student Management System - © 2024 All rights reserved",
-                Dock = DockStyle.Fill,
-                TextAlign = ContentAlignment.MiddleCenter,
-                Font = new Font("Arial", 10, FontStyle.Regular)
-            };
-
-            // Add the label to the footer panel
-            footerPanel.Controls.Add(footerLabel);
-
-            // Add the footer panel to the form
-            this.Controls.Add(footerPanel);
-        }
-
-        // LoadSummary method: Calls database and file methods to get summary data
         private void LoadSummary()
         {
             int totalStudents = 0;
             double averageAge = 0;
 
-            // Fetch data from both database and text file if needed
+            // Fetch data from the database
             GetSummaryFromDatabase(ref totalStudents, ref averageAge);
-            // Optionally: Uncomment below if you want to include data from the text file as well
-            // GetSummaryFromTextFile(ref totalStudents, ref averageAge);
 
             // Display the results in the labels
             textBox1.Text = "Total Students: " + totalStudents;
             textBox2.Text = "Average Age: " + averageAge.ToString("F2");
         }
 
-        // GetSummaryFromDatabase method: Connects to the SQL database to retrieve student count and average age
         private void GetSummaryFromDatabase(ref int totalStudents, ref double averageAge)
         {
             string databaseConn = "Server=HANNO\\SQLEXPRESS;Initial Catalog=Students;Integrated Security=True";
@@ -73,15 +45,17 @@ namespace PRG282Project
                 using (SqlConnection conn = new SqlConnection(databaseConn))
                 {
                     conn.Open();
-                    string query = "SELECT COUNT(*) AS TotalStudents, AVG(Age) AS AverageAge FROM StudentInfo";
+                    string query = "SELECT COUNT(*) AS TotalStudents, AVG(age) AS AverageAge FROM StudentInfo";
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             if (reader.Read())
                             {
-                                totalStudents = reader.GetInt32(0);  // Get total number of students
-                                averageAge = reader.IsDBNull(1) ? 0 : reader.GetDouble(1);  // Get average age
+                                // Read the total number of students, handling possible DBNull values
+                                totalStudents = reader["TotalStudents"] != DBNull.Value ? Convert.ToInt32(reader["TotalStudents"]) : 0;
+                                // Read the average age, handling possible DBNull values
+                                averageAge = reader["AverageAge"] != DBNull.Value ? Convert.ToDouble(reader["AverageAge"]) : 0;
                             }
                         }
                     }
@@ -93,21 +67,34 @@ namespace PRG282Project
             }
         }
 
-        // GetSummaryFromTextFile method: Reads from text file to calculate total students and average age
+        // Simplified GetSummaryFromTextFile method (move inside the class)
         private void GetSummaryFromTextFile(ref int totalStudents, ref double averageAge)
         {
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"students.txt");
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "students.txt");
+
             try
             {
-                var lines = File.ReadAllLines(filePath);
-                if (lines.Length == 0) return;
+                string[] lines = File.ReadAllLines(filePath);
+
+                // If no lines, exit early
+                if (lines.Length == 0)
+                {
+                    return;
+                }
 
                 totalStudents = lines.Length;
-                double totalAge = lines.Select(line =>
+                double totalAge = 0;
+
+                foreach (string line in lines)
                 {
-                    var fields = line.Split(',');
-                    return int.TryParse(fields[2], out int age) ? age : 0;
-                }).Sum();
+                    string[] fields = line.Split(',');
+
+                    // Parse age from the 3rd field, assuming the format is correct
+                    if (fields.Length > 2 && int.TryParse(fields[2], out int age))
+                    {
+                        totalAge += age;
+                    }
+                }
 
                 averageAge = totalStudents > 0 ? totalAge / totalStudents : 0;
             }
@@ -120,6 +107,24 @@ namespace PRG282Project
         private void button1_Click(object sender, EventArgs e)
         {
             LoadSummary();
+        }
+
+        private void SummaryForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Use Application.Exit() to exit the application
+            Application.Exit();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form3 form3 = new Form3();
+            form3.Show();
+            this.Hide();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
