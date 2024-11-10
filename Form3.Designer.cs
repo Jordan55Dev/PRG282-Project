@@ -64,26 +64,31 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(189, 40);
+            this.groupBox1.Location = new System.Drawing.Point(142, 32);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(684, 281);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(513, 228);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(546, 223);
+            this.button3.Location = new System.Drawing.Point(410, 181);
+            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(89, 36);
+            this.button3.Size = new System.Drawing.Size(67, 29);
             this.button3.TabIndex = 10;
             this.button3.Text = "Delete";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(292, 223);
+            this.button2.Location = new System.Drawing.Point(219, 181);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(89, 36);
+            this.button2.Size = new System.Drawing.Size(67, 29);
             this.button2.TabIndex = 9;
             this.button2.Text = "Update";
             this.button2.UseVisualStyleBackColor = true;
@@ -91,39 +96,44 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(28, 223);
+            this.button1.Location = new System.Drawing.Point(21, 181);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(89, 36);
+            this.button1.Size = new System.Drawing.Size(67, 29);
             this.button1.TabIndex = 8;
             this.button1.Text = "Search";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // Course
             // 
-            this.Course.Location = new System.Drawing.Point(324, 180);
+            this.Course.Location = new System.Drawing.Point(243, 146);
+            this.Course.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Course.Name = "Course";
-            this.Course.Size = new System.Drawing.Size(177, 22);
+            this.Course.Size = new System.Drawing.Size(134, 20);
             this.Course.TabIndex = 7;
             // 
             // Age
             // 
-            this.Age.Location = new System.Drawing.Point(324, 137);
+            this.Age.Location = new System.Drawing.Point(243, 111);
+            this.Age.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Age.Name = "Age";
-            this.Age.Size = new System.Drawing.Size(57, 22);
+            this.Age.Size = new System.Drawing.Size(44, 20);
             this.Age.TabIndex = 6;
             // 
             // Name
             // 
-            this.Name.Location = new System.Drawing.Point(324, 90);
+            this.Name.Location = new System.Drawing.Point(243, 73);
+            this.Name.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name.Name = "Name";
-            this.Name.Size = new System.Drawing.Size(177, 22);
+            this.Name.Size = new System.Drawing.Size(134, 20);
             this.Name.TabIndex = 5;
             // 
             // studentID
             // 
-            this.studentID.Location = new System.Drawing.Point(324, 42);
+            this.studentID.Location = new System.Drawing.Point(243, 34);
+            this.studentID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.studentID.Name = "studentID";
-            this.studentID.Size = new System.Drawing.Size(177, 22);
+            this.studentID.Size = new System.Drawing.Size(134, 20);
             this.studentID.TabIndex = 4;
             // 
             // label4
@@ -131,9 +141,10 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(185, 182);
+            this.label4.Location = new System.Drawing.Point(139, 148);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 20);
+            this.label4.Size = new System.Drawing.Size(53, 17);
             this.label4.TabIndex = 3;
             this.label4.Text = "Course";
             // 
@@ -142,9 +153,10 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(185, 137);
+            this.label3.Location = new System.Drawing.Point(139, 111);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 20);
+            this.label3.Size = new System.Drawing.Size(33, 17);
             this.label3.TabIndex = 2;
             this.label3.Text = "Age";
             // 
@@ -153,9 +165,10 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(185, 90);
+            this.label2.Location = new System.Drawing.Point(139, 73);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 20);
+            this.label2.Size = new System.Drawing.Size(45, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Name";
             // 
@@ -164,9 +177,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(185, 44);
+            this.label1.Location = new System.Drawing.Point(139, 36);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 20);
+            this.label1.Size = new System.Drawing.Size(70, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "StudentID";
             // 
@@ -174,21 +188,23 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(189, 331);
+            this.dataGridView1.Location = new System.Drawing.Point(142, 269);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(684, 218);
+            this.dataGridView1.Size = new System.Drawing.Size(513, 177);
             this.dataGridView1.TabIndex = 3;
             // 
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.button4.ForeColor = System.Drawing.SystemColors.Window;
-            this.button4.Location = new System.Drawing.Point(42, 513);
+            this.button4.Location = new System.Drawing.Point(32, 417);
+            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(89, 36);
+            this.button4.Size = new System.Drawing.Size(67, 29);
             this.button4.TabIndex = 11;
             this.button4.Text = "Return";
             this.button4.UseVisualStyleBackColor = false;
@@ -199,9 +215,10 @@
             this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button5.ForeColor = System.Drawing.SystemColors.Window;
-            this.button5.Location = new System.Drawing.Point(928, 513);
+            this.button5.Location = new System.Drawing.Point(696, 417);
+            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(89, 36);
+            this.button5.Size = new System.Drawing.Size(67, 29);
             this.button5.TabIndex = 12;
             this.button5.Text = "Next";
             this.button5.UseVisualStyleBackColor = false;
@@ -211,9 +228,10 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.Gray;
             this.panel3.Controls.Add(this.label6);
-            this.panel3.Location = new System.Drawing.Point(1, 590);
+            this.panel3.Location = new System.Drawing.Point(1, 479);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1110, 42);
+            this.panel3.Size = new System.Drawing.Size(832, 34);
             this.panel3.TabIndex = 13;
             // 
             // label6
@@ -221,24 +239,26 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label6.ForeColor = System.Drawing.SystemColors.Window;
-            this.label6.Location = new System.Drawing.Point(356, 15);
+            this.label6.Location = new System.Drawing.Point(267, 12);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(351, 20);
+            this.label6.Size = new System.Drawing.Size(295, 17);
             this.label6.TabIndex = 0;
             this.label6.Text = "© 2024  BelgiumCampus.All Rights Reserved.";
             // 
             // Form3
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(144)))), ((int)(((byte)(226)))));
-            this.ClientSize = new System.Drawing.Size(1111, 632);
+            this.ClientSize = new System.Drawing.Size(833, 514);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
-            this.Name.Clear();
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Name = "Form3";
             this.Text = "Form3";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form3_FormClosing);
             this.groupBox1.ResumeLayout(false);

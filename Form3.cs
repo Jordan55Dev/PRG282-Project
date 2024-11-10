@@ -180,5 +180,50 @@ namespace PRG282Project
             Application.Exit();
             Application.ExitThread();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            // Check if a student ID is selected
+            if (string.IsNullOrWhiteSpace(studentID.Text))
+            {
+                MessageBox.Show("Please select a student to delete.", "Selection Error");
+                return;
+            }
+
+            string studentIdToDelete = studentID.Text;
+            string databaseConn = "Server=HANNO\\SQLEXPRESS;Initial Catalog=Students;Integrated Security=True";
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(databaseConn))
+                {
+                    conn.Open();
+                    string query = @"DELETE FROM StudentInfo WHERE StudentId = @studentID";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@studentID", studentIdToDelete);
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Student deleted successfully!", "Success");
+                            ClearStudentFields(); // Clear the input fields
+                        }
+                        else
+                        {
+                            MessageBox.Show("Student ID not found. Deletion failed.", "Deletion Error");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Could not delete the student record: " + ex.Message);
+            }
+
+            // Reload data to reflect the deletion
+            LoadData();
+        }
     }
 }
