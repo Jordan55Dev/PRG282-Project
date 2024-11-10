@@ -38,7 +38,7 @@ namespace PRG282Project
 
         private void GetSummaryFromDatabase(ref int totalStudents, ref double averageAge)
         {
-            string databaseConn = "Server=HANNO\\SQLEXPRESS;Initial Catalog=Students;Integrated Security=True";
+            string databaseConn = "Server=LAPTOP-TCIGMIL3\\SQLEXPRESS;Initial Catalog=Students;Integrated Security=True";
 
             try
             {
