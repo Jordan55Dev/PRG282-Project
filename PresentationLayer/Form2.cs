@@ -1,14 +1,5 @@
 ﻿using PRG282Project.BusinessLogicLayer;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PRG282Project
@@ -45,12 +36,21 @@ namespace PRG282Project
             {
                 ID = studentID.Text,
                 Name = Name.Text,
-                Age = int.Parse(Age.Text),
                 Course = Course.Text
             };
 
+            // Validate student data before parsing Age
             try
             {
+                // Check if Age is provided and is a valid integer
+                if (string.IsNullOrWhiteSpace(Age.Text) || !int.TryParse(Age.Text, out int age))
+                {
+                    throw new Exception("Please enter a valid age!");
+                }
+
+                student.Age = age; // Assign the parsed age to the student object
+        
+
                 if (studentService.AddStudent(student))
                 {
                     MessageBox.Show("Student added successfully!", "Success");

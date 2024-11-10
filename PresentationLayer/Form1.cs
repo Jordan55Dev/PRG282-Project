@@ -29,16 +29,6 @@ namespace PRG282Project
             return button;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.ExitThread();
@@ -69,6 +59,11 @@ namespace PRG282Project
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

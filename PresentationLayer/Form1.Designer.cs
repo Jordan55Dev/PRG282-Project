@@ -36,6 +36,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -129,12 +130,25 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "© 2024  BelgiumCampus. All Rights Reserved.";
             // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.button4.ForeColor = System.Drawing.SystemColors.Window;
+            this.button4.Location = new System.Drawing.Point(506, 262);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(94, 41);
+            this.button4.TabIndex = 6;
+            this.button4.Text = "Exit";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(144)))), ((int)(((byte)(226)))));
             this.ClientSize = new System.Drawing.Size(1116, 422);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -160,6 +174,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button4;
     }
 }
 
