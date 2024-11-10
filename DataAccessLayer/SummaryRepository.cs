@@ -43,7 +43,7 @@ namespace PRG282Project.DataAccessLayer
 
         public (int totalStudents, double averageAge) GetSummaryFromTextFile()
         {
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "students.txt");
+            string filePath = "students.txt";
             int totalStudents = 0;
             double averageAge = 0;
 
@@ -78,5 +78,24 @@ namespace PRG282Project.DataAccessLayer
 
             return (totalStudents, averageAge);
         }
+
+        public void SaveSummaryToFile(int totalStudents, double averageAge)
+        {
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "summary.txt");
+
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(filePath))
+                {
+                    writer.WriteLine("Total Students: " + totalStudents);
+                    writer.WriteLine("Average Age: " + averageAge.ToString("F2"));
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error saving summary to file: " + ex.Message);
+            }
+        }
+
     }
 }

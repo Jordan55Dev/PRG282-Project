@@ -15,7 +15,7 @@ namespace PRG282Project
 
         public override string ToString()
         {
-            return $"StudentID:{ID},Student Name:{Name},Student Age:{Age},Course:{Course}";
+            return $"{ID},{Name},{Age},{Course}";
         }
     }
 }

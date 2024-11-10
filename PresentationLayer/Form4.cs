@@ -23,6 +23,9 @@ namespace PRG282Project
                 // Display the results in the labels
                 textBox1.Text = "Total Students: " + totalStudents;
                 textBox2.Text = "Average Age: " + averageAge.ToString("F2");
+
+                // Save the summary to a text file
+                summaryService.SaveSummaryToFile(totalStudents, averageAge);
             }
             catch (Exception ex)
             {

@@ -17,5 +17,11 @@ namespace PRG282Project.BusinessLogicLayer
         {
             return summaryRepository.GetSummaryFromTextFile();
         }
+
+        public void SaveSummaryToFile(int totalStudents, double averageAge)
+        {
+            summaryRepository.SaveSummaryToFile(totalStudents, averageAge);
+        }
+
     }
 }

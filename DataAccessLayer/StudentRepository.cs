@@ -10,7 +10,7 @@ namespace PRG282Project.DataLayer
     public class StudentRepository
     {
         private string databaseConn = "Server=LAPTOP-TCIGMIL3\\SQLEXPRESS;Initial Catalog=Students;Integrated Security=True";
-        private string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\students.txt");
+        private string filePath = "students.txt";
 
         public void AddStudentToDatabase(Student student)
         {
@@ -68,21 +68,6 @@ namespace PRG282Project.DataLayer
             UpdateTextFile(student);
         }
 
-        public bool DeleteStudent(string studentId)
-        {
-            using (SqlConnection conn = new SqlConnection(databaseConn))
-            {
-                conn.Open();
-                string query = @"DELETE FROM StudentInfo WHERE StudentId = @studentID";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@studentID", studentId);
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    return rowsAffected > 0; // Return true if a row was deleted
-                }
-            }
-        }
-
         private void UpdateTextFile(Student student)
         {
             // Read existing file data
@@ -97,6 +82,40 @@ namespace PRG282Project.DataLayer
                 }
             }
             // Write updated data back to file
+            File.WriteAllLines(filePath, lines);
+        }
+
+        public bool DeleteStudent(string studentId)
+        {
+            // Delete from the database
+            using (SqlConnection conn = new SqlConnection(databaseConn))
+            {
+                conn.Open();
+                string query = @"DELETE FROM StudentInfo WHERE StudentId = @studentID";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@studentID", studentId);
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        // If a row was deleted from the database, delete from the text file
+                        DeleteStudentFromFile(studentId);
+                        return true; // Return true if a row was deleted
+                    }
+                    return false; // Return false if no row was deleted
+                }
+            }
+        }
+
+        private void DeleteStudentFromFile(string studentId)
+        {
+            // Read all lines from the file
+            var lines = File.ReadAllLines(filePath).ToList();
+
+            // Remove the line that matches the student ID
+            lines.RemoveAll(line => line.StartsWith(studentId + ","));
+
+            // Write the remaining lines back to the file
             File.WriteAllLines(filePath, lines);
         }
     }
